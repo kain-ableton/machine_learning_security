@@ -56,7 +56,8 @@ class Utilty:
         file_handler.setFormatter(formatter)
 
     # Print metasploit's symbol.
-    def print_message(self, type, message):
+    @staticmethod
+    def print_message(type, message):
         if os.name == 'nt':
             if type == NOTE:
                 print('[+] ' + message)
@@ -92,7 +93,8 @@ class Utilty:
         self.logger.log(loglevel, self.get_current_date() + ' ' + message)
 
     # Create random string.
-    def get_random_token(self, length):
+    @staticmethod
+    def get_random_token(length):
         chars = string.digits + string.ascii_letters
         return ''.join([random.choice(chars) for _ in range(length)])
 
@@ -116,7 +118,8 @@ class Utilty:
         return target_date.strftime(self.report_date_format)
 
     # Delete control character.
-    def delete_ctrl_char(self, origin_text):
+    @staticmethod
+    def delete_ctrl_char(origin_text):
         clean_text = ''
         for char in origin_text:
             ord_num = ord(char)

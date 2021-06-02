@@ -40,7 +40,8 @@ class Utilty:
             sys.exit(1)
 
     # Print metasploit's symbol.
-    def print_message(self, type, message):
+    @staticmethod
+    def print_message(type, message):
         if os.name == 'nt':
             if type == NOTE:
                 print('[+] ' + message)
@@ -72,7 +73,8 @@ class Utilty:
         self.print_message(WARNING, message)
 
     # Create random string.
-    def get_random_token(self, length):
+    @staticmethod
+    def get_random_token(length):
         chars = string.digits + string.ascii_letters
         return ''.join([random.choice(chars) for _ in range(length)])
 
@@ -93,7 +95,8 @@ class Utilty:
         return target_date.strftime(self.report_date_format)
 
     # Delete control character.
-    def delete_ctrl_char(self, origin_text):
+    @staticmethod
+    def delete_ctrl_char(origin_text):
         clean_text = ''
         for char in origin_text:
             ord_num = ord(char)
@@ -103,11 +106,13 @@ class Utilty:
         return clean_text
 
     # Join the paths according to environment.
-    def join_path(self, path1, path2):
+    @staticmethod
+    def join_path(path1, path2):
         return os.path.join(path1, path2)
 
     # Transform gene from number to string.
-    def transform_gene_num2str(self, df_gene, individual_genom_list):
+    @staticmethod
+    def transform_gene_num2str(df_gene, individual_genom_list):
         indivisual = ''
         for gene_num in individual_genom_list:
             indivisual += str(df_gene.loc[gene_num].values[0])
@@ -116,7 +121,8 @@ class Utilty:
         return indivisual
 
     # Check individual using selenium.
-    def check_individual_selenium(self, obj_browser, eval_html_path):
+    @staticmethod
+    def check_individual_selenium(obj_browser, eval_html_path):
         # Evaluate running script using selenium.
         int_score = 0
         error_flag = False
