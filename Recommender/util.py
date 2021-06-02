@@ -110,8 +110,7 @@ class Utilty:
     def transform_date_object(self, target_date, format=None):
         if format is None:
             return datetime.strptime(target_date, self.report_date_format)
-        else:
-            return datetime.strptime(target_date, format)
+        return datetime.strptime(target_date, format)
 
     # Transform date from object to string.
     def transform_date_string(self, target_date):
@@ -143,7 +142,7 @@ class Utilty:
         if port.isdigit() is False:
             self.print_message(FAIL, 'Invalid port number : {}'.format(port))
             return False
-        elif (int(port) < 1) or (int(port) > 65535):
+        if (int(port) < 1) or (int(port) > 65535):
             self.print_message(FAIL, 'Invalid port number : {}'.format(port))
             return False
 
@@ -151,7 +150,7 @@ class Utilty:
         if isinstance(path, str) is False and isinstance(path, int) is False:
             self.print_message(FAIL, 'Invalid path : {}'.format(path))
             return False
-        elif path.startswith('/') is False or path.endswith('/') is False:
+        if path.startswith('/') is False or path.endswith('/') is False:
             self.print_message(FAIL, 'Invalid path : {}'.format(path))
             return False
 
