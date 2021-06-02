@@ -202,7 +202,8 @@ class GAN:
         return lst_genom
 
     # Mean of two vectors.
-    def vector_mean(self, vector1, vector2):
+    @staticmethod
+    def vector_mean(vector1, vector2):
         return (vector1 + vector2)/2
 
     # Main control.

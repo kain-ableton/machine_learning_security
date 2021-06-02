@@ -127,7 +127,8 @@ class Investigate:
             idx += 1
         return lst_feature
 
-    def gen_rand_str(self, int_length):
+    @staticmethod
+    def gen_rand_str(int_length):
         str_chars = string.digits + string.ascii_letters
         return ''.join([random.choice(str_chars) for _ in range(int_length)])
 

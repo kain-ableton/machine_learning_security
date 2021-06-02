@@ -30,7 +30,8 @@ class SimpleSpider(scrapy.Spider):
             time.sleep(self.delay_time)
             yield scrapy.Request(full_url, callback=self.parse_item)
 
-    def parse_item(self, response):
+    @staticmethod
+    def parse_item(response):
         urls = []
         for href in response.css('a::attr(href)'):
             full_url = response.urljoin(href.extract())

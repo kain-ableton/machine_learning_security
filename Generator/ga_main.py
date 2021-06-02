@@ -153,7 +153,8 @@ class GeneticAlgorithm:
         return int_score, 0
 
     # Select elite individual.
-    def select(self, obj_ga, elite):
+    @staticmethod
+    def select(obj_ga, elite):
         # Sort in desc order of evaluation.
         sort_result = sorted(obj_ga, reverse=True, key=lambda u: u.evaluation)
 
@@ -179,7 +180,8 @@ class GeneticAlgorithm:
         return genom_list
 
     # Create population of next generation.
-    def next_generation_gene_create(self, ga, ga_elite, ga_progeny):
+    @staticmethod
+    def next_generation_gene_create(ga, ga_elite, ga_progeny):
         # Sort in asc order of evaluation.
         next_generation_geno = sorted(ga, reverse=False, key=lambda u: u.evaluation)
 
@@ -193,7 +195,8 @@ class GeneticAlgorithm:
         return next_generation_geno
 
     # Mutation.
-    def mutation(self, obj_ga, induvidual_mutation, genom_mutation, df_genes):
+    @staticmethod
+    def mutation(obj_ga, induvidual_mutation, genom_mutation, df_genes):
         lst_ga = []
         for idx in obj_ga:
             # Mutation to individuals.
