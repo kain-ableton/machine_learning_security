@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # coding:utf-8
 import os
+import sys
 import time
 import random
 import string
@@ -36,7 +37,7 @@ class Investigate:
             config.read(os.path.join(full_path, 'config.ini'))
         except FileExistsError as err:
             self.utility.print_exception(err, 'File exists error: {}', err)
-            exit(1)
+            sys.exit(1)
 
         self.output_base_path = config['Spider']['output_base_path']
         check_path = os.path.join(full_path, self.output_base_path)
@@ -145,7 +146,7 @@ class Investigate:
             return self.dic_convert_escape[str_mark]
         except:
             self.utility.print_message(FAIL, 'Conversion key is not found: {}.'.format(str_mark))
-            exit(1)
+            sys.exit(1)
 
     def specify_escape_type(self, str_response, str_seek_before, str_seek_after, str_signature, dic_feature_local):
         str_pattern = r'.*' + str_seek_before + r'(.*)' + str_seek_after

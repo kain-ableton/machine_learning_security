@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
 from keras.optimizers import Adam
 from keras.utils import np_utils
+import sys
 
 
 # Type of printing.
@@ -30,7 +31,7 @@ class Recommend:
             config.read(os.path.join(full_path, 'config.ini'))
         except FileExistsError as err:
             self.utility.print_exception(err, 'File exists error: {}', err)
-            exit(1)
+            sys.exit(1)
 
         self.epoch = int(config['Recommender']['epoch'])
         self.batch_size = int(config['Recommender']['batch_size'])

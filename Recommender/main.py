@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) == 1:
         utility.print_message(FAIL, 'Invalid parameter "{}"'.format(sys.argv))
-        exit(1)
+        sys.exit(1)
 
     if sys.argv[1] == 'TRAIN':
         utility.print_message(NOTE, 'Start {} mode.'.format(sys.argv[1]))
